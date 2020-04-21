@@ -10,36 +10,50 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	libasm.a
+NAME		=	libasm.a
 
-SRC_ASM	=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
+SRC_ASM		=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
 
-OBJ_ASM	=	$(SRC_ASM:.s=.o)
+OBJ_ASM		=	$(SRC_ASM:.s=.o)
 
-NASM	=	nasm
+SRC_TEST	= 	main.c
 
-RANLIB	=	ranlib
+OBJ_TEST	=	$(SRC_TEST:.c=.o)
 
-FLAGS	=	-f macho64
+EXEC		=	test
 
-AR		=	ar rc
+NASM		=	nasm
 
-RM		=	rm -f
+RANLIB		=	ranlib
+
+N_FLAGS		=	-f macho64
+
+CFLAGS		=	-Wall -Wextra -Werror
+
+CC			=	gcc
+
+AR			=	ar rc
+
+RM			=	rm -f
 
 all:		$(NAME)
 
-$(NAME):	$(OBJ_ASM)
+$(NAME):	$(OBJ_ASM) $(OBJ_TEST)
 		$(AR) $(NAME) $(OBJ_ASM)
 		$(RANLIB) $(NAME)
+		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ_TEST) $(NAME)
+
 
 %.o :		%.s
-		$(NASM) $(FLAGS) -o $@ $<
+		$(NASM) $(N_FLAGS) -o $@ $<
 
 clean:
 		$(RM) $(OBJ_ASM)
+		$(RM) $(OBJ_TEST)
 
 fclean :	clean
 		$(RM) $(NAME)
+		$(RM) $(EXEC)
 
 re :		fclean all
 

@@ -21,6 +21,7 @@ comp:
 			je comp
 
 end:
-			sub bl, dl
-			movzx rax, bl
+			sub dl, bl
+			movzx rax, dl
+			neg rax
 			ret
