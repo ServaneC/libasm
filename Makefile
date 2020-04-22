@@ -12,11 +12,12 @@
 
 NAME		=	libasm.a
 
-SRC_ASM		=	ft_strlen.s ft_strcpy.s ft_strcmp.s ft_write.s ft_read.s ft_strdup.s
+SRC_ASM		=	srcs/ft_strlen.s srcs/ft_strcpy.s srcs/ft_strcmp.s \
+				srcs/ft_write.s srcs/ft_read.s srcs/ft_strdup.s
 
 OBJ_ASM		=	$(SRC_ASM:.s=.o)
 
-SRC_TEST	= 	main.c
+SRC_TEST	= 	srcs/main.c
 
 OBJ_TEST	=	$(SRC_TEST:.c=.o)
 
