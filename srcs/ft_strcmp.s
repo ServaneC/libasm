@@ -9,7 +9,7 @@ _ft_strcmp:
 
 comp:
 			inc rcx
-			mov al, [rdi + rcx]
+			mov al, byte[rdi + rcx]
 			mov bl, byte[rsi + rcx]
 			cmp al, 0
 			je neg_diff
