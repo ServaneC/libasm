@@ -1,5 +1,5 @@
 		global	_ft_read
-
+		extern ___error
 		section	.text
 
 _ft_read:
@@ -9,7 +9,11 @@ _ft_read:
 			jmp end
 
 error:
-			mov rax, -1
+		xor rdx, rdx
+		mov rdx, rax
+    	call ___error
+		mov [rax], rdx
+		mov rax, -1
 
 end:
 			ret

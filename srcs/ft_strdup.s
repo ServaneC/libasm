@@ -3,7 +3,7 @@ section	.text
 		extern	_ft_strlen
 		extern	_malloc
 		extern	_ft_strcpy
-		extern __error
+		extern ___error
 
 _ft_strdup:
 		call _ft_strlen
@@ -11,15 +11,18 @@ _ft_strdup:
 		mov rdi, rax
 		inc rdi
 		call _malloc
-		cmp rax, 0
-		je error
+		jc error
 		pop rsi
 		mov rdi, rax
 		call _ft_strcpy
 		jmp end
 
 error:
-		mov rax, -1
+		xor rdx, rdx
+		mov rdx, rax
+		call ___error
+		mov [rax], rdx
+		mov rax, 0
 
 end:
 		ret

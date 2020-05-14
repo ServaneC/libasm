@@ -1,4 +1,5 @@
 	global	_ft_strcmp
+	
 
 	section	.text
 

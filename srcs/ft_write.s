@@ -1,5 +1,5 @@
 		global	_ft_write
-
+		extern ___error
 		section	.text
 
 _ft_write:
@@ -9,6 +9,10 @@ _ft_write:
 			jmp end
 
 error:
+			xor rdx, rdx
+			mov rdx, rax
+			call ___error
+			mov [rax], rdx
 			mov rax, -1
 
 end:

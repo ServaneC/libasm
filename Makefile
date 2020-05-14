@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: servanechene <servanechene@student.42.f    +#+  +:+       +#+         #
+#    By: schene <schene@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/04/14 18:18:58 by servanechen       #+#    #+#              #
-#    Updated: 2020/04/18 19:10:22 by servanechen      ###   ########.fr        #
+#    Updated: 2020/04/29 15:34:57 by schene           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -42,7 +42,7 @@ all:		$(NAME)
 $(NAME):	$(OBJ_ASM) $(OBJ_TEST)
 		$(AR) $(NAME) $(OBJ_ASM)
 		$(RANLIB) $(NAME)
-		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ_TEST) $(NAME)
+		$(CC) $(CFLAGS) -o $(EXEC) $(OBJ_TEST) $(NAME) 
 
 
 %.o :		%.s

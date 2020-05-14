@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: servanechene <servanechene@student.42.f    +#+  +:+       +#+        */
+/*   By: schene <schene@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/14 19:05:15 by servanechen       #+#    #+#             */
-/*   Updated: 2020/04/19 16:57:53 by servanechen      ###   ########.fr       */
+/*   Updated: 2020/05/14 23:27:20 by schene           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,14 +74,17 @@ int main()
 	printf("\n------write--&--ft_write-----\n");
 	printf("<--write");
 	write(1, s1, strlen(s1));
+	//write(-3, s1, strlen(s1));
 	printf("\n<--ft_write\n");
+	printf("errno = %d\n", errno);
 	ft_write(1, s1, strlen(s1));
 	printf("\n-----------ft_read-----------\n");
 	fd = open("text.txt", O_RDONLY);
 	if (!(buf = malloc(sizeof(char)*66)))
 		return(-1);
+	//fd = -3;
 	ft_read(fd, buf, 66);
-	printf("ft_read = [%s]\n", buf);
+	printf("ft_read = [%s]\nerrno = %d\n", buf, errno);
 	close(fd);
 	printf("\n-----------ft_strdup-----------\n");
 	up = ft_strdup(buf);
